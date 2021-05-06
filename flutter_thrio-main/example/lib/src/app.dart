@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thrio/thrio.dart';
+import 'package:thrio_example/src/launch.dart';
 import 'module.dart';
 
 void main() => runApp(const MainApp());
@@ -28,10 +29,13 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) => ExcludeSemantics(
         child: NavigatorMaterialApp(
-          home: const NavigatorHome(showRestartButton: true),
-          builder: (context, child) => Container(
-            child: child,
-          ),
+          debugShowCheckedModeBanner: false, 
+          // home: const NavigatorHome(showRestartButton: true),
+          home: new LaunchPage(),
+
+          // builder: (context, child) => Container(
+          //   child: child,
+          // ),
           theme: ThemeData(
             pageTransitionsTheme: const PageTransitionsTheme(builders: {
               TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
